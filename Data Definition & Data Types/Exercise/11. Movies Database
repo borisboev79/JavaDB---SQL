@@ -1,0 +1,60 @@
+Create Table `directors` (`id` INT AUTO_INCREMENT, 
+`director_name` VARCHAR(50) NOT NULL, 
+`notes` TEXT,
+CONSTRAINT pk_directors
+PRIMARY KEY `directors` (`id`))
+;
+
+INSERT INTO `directors` (`id`, `director_name`)
+VALUES (1, 'Almodovar'),
+(2, 'Spielberg'),
+(3, 'Almodovar'),
+(4, 'Waikiki'),
+(5, 'Toto');
+
+Create Table `genres` (`id` INT AUTO_INCREMENT, 
+`genre_name` VARCHAR(50) NOT NULL, 
+`notes` TEXT,
+CONSTRAINT pk_genres
+PRIMARY KEY `genres` (`id`))
+;
+
+INSERT INTO `genres` (`id`, `genre_name`)
+VALUES (1, 'Horror'),
+(2, 'Comedy'),
+(3, 'Thriller'),
+(4, 'Drama'),
+(5, 'Sci-fi');
+
+Create Table `categories` (`id` INT AUTO_INCREMENT, 
+`category_name` VARCHAR(50) NOT NULL, 
+`notes` TEXT,
+CONSTRAINT pk_categories
+PRIMARY KEY `categories` (`id`))
+;
+
+INSERT INTO `categories` (`id`, `category_name`)
+VALUES (1, 'PG'),
+(2, '18+'),
+(3, 'U'),
+(4, 'B'),
+(5, '16+');
+
+CREATE TABLE `movies` (`id` INT AUTO_INCREMENT,
+`title` VARCHAR(50) NOT NULL,
+`director_id` INT,
+`copyright_year` YEAR,
+`length` TIME,
+`genre_id` INT,
+`category_id` INT,
+`rating` DOUBLE(1,1),
+`notes` TEXT,
+CONSTRAINT pk_movies
+PRIMARY KEY `movies` (`id`));
+
+INSERT INTO `movies` (`id`, `title`, `director_id`, `genre_id`, `category_id`)
+VALUES (1, 'Starwars', 2, 5, 3),
+(2, 'Starwars II', 2, 5, 3),
+(3, 'Starwars III', 2, 5, 3),
+(4, 'Starwars IV', 2, 5, 3),
+(5, 'Starwars V', 2, 5, 3);
