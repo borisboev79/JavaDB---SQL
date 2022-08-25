@@ -1,0 +1,13 @@
+Create table `users` (`id` INT AUTO_INCREMENT, 
+`username` VARCHAR(30) UNIQUE NOT NULL,
+`password` VARCHAR(26) NOT NULL, 
+`profile_picture` BLOB,
+`last_login_time` TIME,
+`is_deleted` BOOLEAN,
+CONSTRAINT pk_users PRIMARY KEY `users` (`id`));
+
+INSERT INTO `users` (`username`, `password`) VALUES ('gosho', '123pass'),
+('pesho', 'pass123'),
+('sasho', 'pass123'),
+('tosho', 'pass123'),
+('ivan', 'pass123');
