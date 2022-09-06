@@ -1,0 +1,1 @@
+SELECT sum(cost) as `cost` from books;
