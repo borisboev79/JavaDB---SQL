@@ -1,0 +1,3 @@
+select e.`department_id`, count(e.`id`) as `Number of Employees`
+FROM `employees` AS e
+GROUP BY e.`department_id`;
