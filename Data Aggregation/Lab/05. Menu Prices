@@ -1,0 +1,7 @@
+SELECT e.`category_id`,
+round(AVG(e.`price`),2) AS `Avergage Price`,
+round(MIN(e.`price`),2) AS `Cheapest Product`,
+round(MAX(e.`price`),2) AS `Most Expensive Product`
+FROM `products` AS e
+GROUP BY e.`category_id`
+ORDER BY e.`category_id`;
