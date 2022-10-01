@@ -1,0 +1,3 @@
+SELECT e.`department_id`, round(avg(e.`salary`),2) AS `Avergage Salary`
+FROM `employees` AS e
+GROUP BY e.`department_id`;
