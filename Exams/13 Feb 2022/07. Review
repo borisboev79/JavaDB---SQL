@@ -1,0 +1,4 @@
+SELECT * FROM reviews
+WHERE LEFT(content,2) LIKE 'My' AND
+LENGTH(content) > 61
+ORDER BY rating DESC;
