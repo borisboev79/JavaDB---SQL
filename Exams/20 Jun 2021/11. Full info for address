@@ -1,0 +1,21 @@
+CREATE PROCEDURE udp_courses_by_address (address_name VARCHAR(100))
+BEGIN
+SELECT 
+a.name,
+cl.full_name,
+CASE
+WHEN cs.bill <= 20 THEN 'Low'
+WHEN cs.bill <= 30 THEN 'Medium'
+ELSE 'High'
+END AS level_of_bill,
+c.make,
+c.`condition`,
+cat.name AS cat_name
+FROM addresses AS a
+JOIN courses AS cs ON cs.from_address_id = a.id
+JOIN clients AS cl ON cl.id = cs.client_id
+JOIN cars AS c ON c.id = cs.car_id
+JOIN categories AS cat ON cat.id = c.category_id
+WHERE a.name LIKE address_name
+ORDER BY c.make, cl.full_name;
+END
