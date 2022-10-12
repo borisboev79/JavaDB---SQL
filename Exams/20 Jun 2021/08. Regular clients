@@ -1,0 +1,13 @@
+SELECT 
+    c.full_name,
+    COUNT(cs.client_id) AS count_of_cars,
+    SUM(cs.bill) AS total_sum
+FROM
+    clients AS c
+        JOIN
+    courses AS cs ON cs.client_id = c.id
+WHERE
+    LEFT(full_name, 2) LIKE '_a'
+GROUP BY full_name
+HAVING count_of_cars > 1
+ORDER BY full_name;
