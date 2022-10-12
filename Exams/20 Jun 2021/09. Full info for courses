@@ -1,0 +1,21 @@
+SELECT 
+    a.name,
+    IF(HOUR(cs.`start`) BETWEEN 6 AND 20,
+        'Day',
+        'Night') AS day_time,
+    cs.bill,
+    cl.full_name,
+    c.make,
+    c.model,
+    cat.name AS category_name
+FROM
+    addresses AS a
+        JOIN
+    courses AS cs ON cs.from_address_id = a.id
+        JOIN
+    clients AS cl ON cl.id = cs.client_id
+        JOIN
+    cars AS c ON c.id = cs.car_id
+        JOIN
+    categories AS cat ON cat.id = c.category_id
+ORDER BY cs.id;
