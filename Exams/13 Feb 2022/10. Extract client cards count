@@ -1,0 +1,15 @@
+REATE FUNCTION udf_customer_products_count(name VARCHAR(30))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+DECLARE total_products INT;
+SET total_products := (
+SELECT
+COUNT(op.product_id)
+FROM orders_products AS op 
+JOIN orders AS o ON o.id = op.order_id
+JOIN customers AS c ON c.id = o.customer_id
+WHERE c.first_name LIKE `name`
+);
+RETURN total_products;
+END
