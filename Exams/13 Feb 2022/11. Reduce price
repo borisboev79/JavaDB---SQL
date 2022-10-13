@@ -8,3 +8,5 @@ WHERE c.name LIKE category_name AND
 p.review_id IS NOT NULL AND
 r.rating < 4;
 END
+
+
