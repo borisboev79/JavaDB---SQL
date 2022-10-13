@@ -1,0 +1,10 @@
+CREATE PROCEDURE udp_reduce_price (category_name VARCHAR(50))
+BEGIN
+UPDATE products AS p
+LEFT JOIN categories AS c ON c.id = p.category_id
+JOIN reviews AS r ON r.id = p.review_id
+SET price = ROUND(price * 0.7, 2)
+WHERE c.name LIKE category_name AND
+p.review_id IS NOT NULL AND
+r.rating < 4;
+END
