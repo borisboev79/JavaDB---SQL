@@ -23,4 +23,4 @@ WHERE
 ORDER BY sd.speed DESC
 LIMIT 1;
 
-END
+END.
