@@ -1,4 +1,4 @@
-REATE FUNCTION udf_customer_products_count(name VARCHAR(30))
+CREATE FUNCTION udf_customer_products_count(name VARCHAR(30))
 RETURNS INT
 DETERMINISTIC
 BEGIN
