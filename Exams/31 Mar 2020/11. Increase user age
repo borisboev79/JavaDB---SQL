@@ -5,4 +5,4 @@ JOIN addresses AS a ON a.user_id = u.id
 SET age = age + 10
 WHERE a.address = address AND
         a.town = town;
-END
+ENDл
