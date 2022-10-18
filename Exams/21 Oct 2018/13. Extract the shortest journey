@@ -1,0 +1,7 @@
+SELECT j.id, p.name, sp.name, j.purpose
+FROM journeys AS j
+JOIN spaceports AS sp ON sp.id = j.destination_spaceport_id
+JOIN planets AS p ON p.id = sp.planet_id
+WHERE j.purpose = 'Military'
+ORDER BY timestampdiff(SECOND, j.journey_start, j.journey_end)
+LIMIT 1;
