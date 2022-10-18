@@ -1,0 +1,6 @@
+SELECT tc.job_during_journey AS job_name
+FROM travel_cards AS tc
+JOIN journeys AS j ON j.id = tc.journey_id
+GROUP BY j.id, tc.job_during_journey
+ORDER BY j.journey_end - j.journey_start DESC, count(tc.id)
+LIMIT 1;
